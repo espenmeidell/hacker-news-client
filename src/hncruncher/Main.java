@@ -1,4 +1,4 @@
-package sample;
+package hncruncher;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

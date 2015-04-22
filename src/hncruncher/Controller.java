@@ -1,4 +1,4 @@
-package sample;
+package hncruncher;
 
 public class Controller {
 }

@@ -1,12 +1,15 @@
 package hncruncher;
 
+import javafx.application.Application;
 import javafx.scene.input.MouseEvent;
 
 import java.awt.*;
+import java.io.IOException;
 import java.net.URI;
 
 /**
- * Created by espen on 22.04.15.
+ * Class to represent each entry from Hacker News
+ * Created by Espen Meidell on 22.04.15.
  */
 public class HNEntry {
 
@@ -15,6 +18,15 @@ public class HNEntry {
     private String title;
     private String by;
     private int pointCount;
+
+    /**
+     * Creates a new HNEntry
+     * @param id Entry ID
+     * @param linkTarget Target URL
+     * @param title Title of entry
+     * @param by Creator of entry
+     * @param pointCount Point count of entry
+     */
     public HNEntry(String id, String linkTarget, String title, String by, int pointCount){
         this.id = id;
         this.url = linkTarget;
@@ -47,7 +59,16 @@ public class HNEntry {
      * Open entry in browser
      */
     public void openInBrowser(){
-        System.out.println("Opening in browser");
+        System.out.println("Opening: "+getUrl());
+
+        try {
+            Main.hostServicesDelegate.showDocument(getUrl());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Done");
     }
 
     /**

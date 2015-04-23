@@ -1,6 +1,7 @@
-package hncruncher;
+package hncruncher.data;
 
 
+import hncruncher.HNEntry;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -39,7 +40,9 @@ public class HNLinkParser {
         String idtext = builder.toString().replace("[", "");
         idtext = idtext.replace("]", "");
         String[] ids = idtext.split(", ");
-
+        for (int i = 0; i < ids.length; i++) {
+            ids[i] = ids[i].trim();
+        }
         return ids;
     }
 

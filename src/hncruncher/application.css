@@ -1,13 +1,39 @@
 
 .entry{
-    -fx-background-color: #DBDBDB;
+    -fx-background-color: #e3f2fd;
 
 }
 .entry:hover{
-    -fx-background-color: #F4F4F4;
+    -fx-background-color: #bbdefb;
 }
 
 .entryTitle{
     -fx-font-size: 18px;
+    -fx-font-family: Ubuntu;
     -fx-font-weight: bold;
+}
+
+.favButton{
+    -fx-font-weight: bold;
+}
+.favButton:hover {
+    -fx-font-color: green;
+}
+
+
+.button {
+    -fx-padding: 8 8 8 8;
+    -fx-background-radius: 4;
+    -fx-background-color: #64b5f6;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-font-family: Ubuntu;
+}
+.button:hover {
+    -fx-background-color: #90caf9;
+}
+
+.button Text {
+    -fx-fill: white;
+
 }

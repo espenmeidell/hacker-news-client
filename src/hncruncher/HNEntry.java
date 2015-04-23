@@ -1,5 +1,7 @@
 package hncruncher;
 
+import javafx.scene.input.MouseEvent;
+
 import java.awt.*;
 import java.net.URI;
 
@@ -41,6 +43,20 @@ public class HNEntry {
         return pointCount;
     }
 
+    /**
+     * Open entry in browser
+     */
+    public void openInBrowser(){
+        System.out.println("Opening in browser");
+    }
+
+    /**
+     * Open entry in browser
+     * @param mouseEvent Event that calls this action
+     */
+    public void openInBrowser(MouseEvent mouseEvent) {
+        openInBrowser();
+    }
 
     @Override
     public String toString(){

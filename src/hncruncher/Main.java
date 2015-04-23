@@ -1,21 +1,30 @@
 package hncruncher;
 
+import hncruncher.hncruncher.uicomponents.EntryPanel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        VBox root = new VBox(5);
+
         primaryStage.setTitle("Hello World");
 
-        HNLinkParser.getLinksFromHN("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty");
+        String[] ids = HNLinkParser.getIDsFromLink("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty");
 
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        if (ids != null) {
+            root.getChildren().add(new EntryPanel(HNLinkParser.getEntryFromID(ids[0])));
+        }
+        System.out.println(ids.length);
+        primaryStage.setScene(new Scene(root, 650, 275));
+        primaryStage.getScene().getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.show();
     }
 

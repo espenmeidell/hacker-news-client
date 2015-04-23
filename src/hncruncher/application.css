@@ -1,0 +1,13 @@
+
+.entry{
+    -fx-background-color: #DBDBDB;
+
+}
+.entry:hover{
+    -fx-background-color: #F4F4F4;
+}
+
+.entryTitle{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

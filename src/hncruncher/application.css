@@ -19,9 +19,11 @@
 
 .favButton{
     -fx-font-weight: bold;
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-padding: 0;
 }
-.favButton:hover {
-    -fx-font-color: green;
+.favButton:hover{
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.8) , 5, 0.0 , 0 , 1 );
 }
 
 

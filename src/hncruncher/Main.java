@@ -109,7 +109,7 @@ public class Main extends Application {
                 topBar.hideLoading();
             }
         });
-        new Thread(task).start();
+        new Thread(task).start();   //Load data from HN in a seperate thread, so that UI doesn't freeze
 
     }
 

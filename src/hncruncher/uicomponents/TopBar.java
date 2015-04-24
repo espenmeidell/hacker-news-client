@@ -63,7 +63,7 @@ public class TopBar extends HBox {
         } else if (group.getSelectedToggle() == favButton) {
             return "fav";
         }
-        return null;
+        return "top";
     }
 
     /**

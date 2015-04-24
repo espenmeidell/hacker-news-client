@@ -4,9 +4,7 @@ import com.sun.javafx.application.HostServicesDelegate;
 import hncruncher.data.EntryPointComparator;
 import hncruncher.data.FavouriteManager;
 import hncruncher.data.HNLinkParser;
-import hncruncher.uicomponents.EntryListView;
-import hncruncher.uicomponents.EntryPanel;
-import hncruncher.uicomponents.TopBar;
+import hncruncher.uicomponents.*;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
@@ -24,6 +22,7 @@ public class Main extends Application {
     public DataControl dataControl = new DataControl();         //Controls data for list views
     public static HostServicesDelegate hostServicesDelegate;       //To open browser
     public static Main main;                                    //Main instance
+    public Stage mainStage;
     public BorderPane root;                                     //Application Root
     public EntryListView listView = new EntryListView();        //List view to add entries to
     public TopBar topBar;                                       //Top bar (contains controls etc.)
@@ -32,6 +31,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = new BorderPane();
         this.root = root;
+        this.mainStage = primaryStage;
         main = this;
         topBar = new TopBar();
         root.getStyleClass().add("baseBG");
@@ -109,6 +109,9 @@ public class Main extends Application {
                 dataControl.sortEntries(new EntryPointComparator());
                 dataControl.getEntries().forEach(e -> listView.addEntryPanel(new EntryPanel(e)));
                 topBar.hideLoading();
+                PopupNotification p = new PopupNotification("Error Loading Data", "Please check your internet connection." +
+                        "If that does not work, please go fuck yourself!", PopupType.ERROR);
+                p.show();
             }
         });
         new Thread(task).start();   //Load data from HN in a seperate thread, so that UI doesn't freeze

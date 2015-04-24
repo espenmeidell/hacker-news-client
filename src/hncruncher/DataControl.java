@@ -1,6 +1,7 @@
 package hncruncher;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -42,5 +43,12 @@ public class DataControl {
         entryList.removeAll(entryList);
     }
 
+    /**
+     * Sort entries by given comparator
+     * @param comp Comparator
+     */
+    public void sortEntries(Comparator<HNEntry> comp) {
+        entryList.sort(comp);
+    }
 
 }

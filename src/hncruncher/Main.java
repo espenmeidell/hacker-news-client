@@ -1,6 +1,7 @@
 package hncruncher;
 
 import com.sun.javafx.application.HostServicesDelegate;
+import hncruncher.data.EntryPointComparator;
 import hncruncher.data.FavouriteManager;
 import hncruncher.data.HNLinkParser;
 import hncruncher.uicomponents.EntryListView;
@@ -105,6 +106,7 @@ public class Main extends Application {
         task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent event) {
+                dataControl.sortEntries(new EntryPointComparator());
                 dataControl.getEntries().forEach(e -> listView.addEntryPanel(new EntryPanel(e)));
                 topBar.hideLoading();
             }

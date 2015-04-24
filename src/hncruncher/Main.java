@@ -4,9 +4,7 @@ import com.sun.javafx.application.HostServicesDelegate;
 import hncruncher.data.EntryPointComparator;
 import hncruncher.data.FavouriteManager;
 import hncruncher.data.HNLinkParser;
-import hncruncher.uicomponents.EntryListView;
-import hncruncher.uicomponents.EntryPanel;
-import hncruncher.uicomponents.TopBar;
+import hncruncher.uicomponents.*;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
@@ -24,6 +22,7 @@ public class Main extends Application {
     public DataControl dataControl = new DataControl();         //Controls data for list views
     public static HostServicesDelegate hostServicesDelegate;       //To open browser
     public static Main main;                                    //Main instance
+    public Stage mainStage;                                     //Stage of main instance
     public BorderPane root;                                     //Application Root
     public EntryListView listView = new EntryListView();        //List view to add entries to
     public TopBar topBar;                                       //Top bar (contains controls etc.)
@@ -32,6 +31,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         BorderPane root = new BorderPane();
         this.root = root;
+        this.mainStage = primaryStage;
         main = this;
         topBar = new TopBar();
         root.getStyleClass().add("baseBG");
@@ -92,7 +92,7 @@ public class Main extends Application {
                     } else {
                         ids = HNLinkParser.getIDsFromLink(link);
                     }
-                    for (int i = 0; i < 15; i++) {
+                    for (int i = 0; i < 2; i++) {
                         HNEntry entry = HNLinkParser.getEntryFromID(ids[i].trim());
                         dataControl.addEntry(entry);
                     }
@@ -111,7 +111,7 @@ public class Main extends Application {
                 topBar.hideLoading();
             }
         });
-        new Thread(task).start();   //Load data from HN in a seperate thread, so that UI doesn't freeze
+        new Thread(task).start();   //Load data from HN in a separate thread, so that UI doesn't freeze
 
     }
 

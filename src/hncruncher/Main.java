@@ -92,7 +92,7 @@ public class Main extends Application {
                     } else {
                         ids = HNLinkParser.getIDsFromLink(link);
                     }
-                    for (int i = 0; i < 2; i++) {
+                    for (int i = 0; i < 5; i++) {
                         HNEntry entry = HNLinkParser.getEntryFromID(ids[i].trim());
                         dataControl.addEntry(entry);
                     }
@@ -106,7 +106,7 @@ public class Main extends Application {
         task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent event) {
-                dataControl.sortEntries(new EntryPointComparator());
+                if (topBar.sortByPoints()) dataControl.sortEntries(new EntryPointComparator());
                 dataControl.getEntries().forEach(e -> listView.addEntryPanel(new EntryPanel(e)));
                 topBar.hideLoading();
             }

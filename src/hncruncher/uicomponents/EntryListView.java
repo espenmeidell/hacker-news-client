@@ -1,5 +1,8 @@
 package hncruncher.uicomponents;
 
+import hncruncher.DataControl;
+import hncruncher.Main;
+import hncruncher.data.EntryPointComparator;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
@@ -52,7 +55,15 @@ public class EntryListView extends ScrollPane{
         panelBox.getChildren().removeAll(panelBox.getChildren());
     }
 
-
+    /**
+     * Sort all existing entries based on their score
+     */
+    public void sortEntriesByPoints(){
+        if (Main.main.dataControl.getEntries().size() == 0) return;
+        Main.main.dataControl.sortEntries(new EntryPointComparator());
+        removeAllEntryPanels();
+        Main.main.dataControl.getEntries().forEach(e -> addEntryPanel(new EntryPanel(e)));
+    }
 
 
 }

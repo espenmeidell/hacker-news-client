@@ -1,0 +1,33 @@
+
+.root{
+    -fx-background-color: #eeeeee;
+}
+
+
+.button{
+    -fx-background-radius: 2;
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #383838;
+    -fx-font-family: Ubuntu;
+    -fx-font-weight: bold;
+    -fx-font-size: 110%;
+}
+
+.button:hover{
+    -fx-background-color: #EEEEEE;
+}
+
+.button-box{
+    -fx-background-color: #757575;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 5, 0.0, 0, -1);
+}
+
+.title{
+    -fx-text-fill: #757575;
+    -fx-font-weight: bolder;
+    -fx-font-size: 18;
+}
+
+.text{
+    -fx-font-size: 110%;
+}

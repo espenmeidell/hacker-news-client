@@ -10,11 +10,13 @@ public class FavouriteManager {
 
     private static String favFilePath = System.getProperty("user.home")+"/.hnfav";
 
+    //Private helper method
     private static boolean hasFavouriteFileWithOkPermissions() {
         File file = new File(favFilePath);
         return file.exists() && file.canRead() && file.canWrite();
     }
 
+    //Private helper method
     private static void createFavouriteFile() throws IOException{
         File file = new File(favFilePath);
         if (!hasFavouriteFileWithOkPermissions()){
@@ -22,7 +24,12 @@ public class FavouriteManager {
         }
     }
 
-    private static String[] getFavourites() throws IOException {
+    /**
+     * Get all stored favourites
+     * @return Favorites
+     * @throws IOException if something goes wrong
+     */
+    public static String[] getFavourites() throws IOException {
         if (!hasFavouriteFileWithOkPermissions()) createFavouriteFile();
         BufferedReader br = new BufferedReader(new FileReader(favFilePath));
         StringBuilder sb = new StringBuilder();

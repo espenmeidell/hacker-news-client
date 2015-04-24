@@ -19,7 +19,7 @@ public class EntryListView extends ScrollPane{
         getStyleClass().add("baseBG");
         panelBox.getStyleClass().add("baseBG");
         setContent(panelBox);
-        setMinWidth(700);
+        setMinWidth(900);
         setMinHeight(300);
         setFitToHeight(true);
         setFitToWidth(true);

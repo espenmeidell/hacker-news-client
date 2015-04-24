@@ -28,7 +28,6 @@ public class HNLinkParser {
      * @throws IOException In case of IO error
      */
     public static String[] getIDsFromLink(String link) throws IOException{
-
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(link).openStream()));
         StringBuilder builder = new StringBuilder();
         String line;

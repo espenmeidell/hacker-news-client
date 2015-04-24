@@ -25,6 +25,10 @@ public class EntryPanel extends HBox{
     private Button goButton = new Button("Open Article");
     private Button favButton = new Button("+");
 
+    /**
+     * Creates a new entry panel
+     * @param e Entry to show
+     */
     public EntryPanel(HNEntry e){
         setSpacing(20);
         setPadding(new Insets(5));

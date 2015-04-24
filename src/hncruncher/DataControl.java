@@ -4,22 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by espen on 24.04.15.
+ * Support class for Main, stores entries while loading from web
+ * Created by Espen Meidell on 24.04.15.
  */
 public class DataControl {
     private  Main main;
     private  List<HNEntry> entryList = new ArrayList<>();
 
+    /**
+     * Sets the main instance
+     * @param m
+     */
     public  void setMain(Main m){
         main = m;
     }
 
+    /**
+     * Adds an entry to the list
+     * @param e Entry to add
+     */
     public  void addEntry(HNEntry e){
         entryList.add(e);
     }
 
+    /**
+     * Get all entries
+     * @return Entries
+     */
     public  List<HNEntry> getEntries(){
         return entryList;
+    }
+
+    /**
+     * Removes existing entries from the list
+     */
+    public  void clearEntries(){
+        entryList.removeAll(entryList);
     }
 
 

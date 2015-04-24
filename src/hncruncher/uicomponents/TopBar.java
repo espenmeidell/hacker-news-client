@@ -3,10 +3,8 @@ package hncruncher.uicomponents;
 import hncruncher.Main;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 
@@ -23,6 +21,13 @@ public class TopBar extends HBox {
 
     private Region sep1 = new Region();
 
+    ProgressIndicator progressIndicator = new ProgressIndicator();
+    Label progressLabel = new Label("Loading Data");
+    HBox progressBox = new HBox(progressIndicator, progressLabel);
+
+    /**
+     * Creates a new Top Bar
+     */
     public TopBar() {
         setSpacing(0);
         setPadding(new Insets(5, 30, 5, 30));
@@ -35,7 +40,10 @@ public class TopBar extends HBox {
         favButton.setToggleGroup(group);
         favButton.getStyleClass().setAll("my-toggle-button");
         favButton.setOnMouseClicked(Main.main::loadData);
+        topButton.setSelected(true);
 
+        progressBox.setMaxHeight(30);
+        progressBox.setAlignment(Pos.CENTER);
 
         sep1.setMinWidth(10);
 
@@ -43,6 +51,10 @@ public class TopBar extends HBox {
 
     }
 
+    /**
+     * Get the selected category
+     * @return "new", "top" or "fav"
+     */
     public String getSelectedCategory(){
         if (group.getSelectedToggle() == newButton){
             return "new";
@@ -52,6 +64,21 @@ public class TopBar extends HBox {
             return "fav";
         }
         return null;
+    }
+
+    /**
+     * Shows a loading indicator in the top bar
+     */
+    public void showLoading(){
+        if (getChildren().contains(progressBox)) return;
+        getChildren().add(progressBox);
+    }
+
+    /**
+     * Hides the loading indicator from the top bar
+     */
+    public void hideLoading(){
+        getChildren().remove(progressBox);
     }
 
 }

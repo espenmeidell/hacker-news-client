@@ -79,6 +79,10 @@ public class HNEntry {
         openInBrowser();
     }
 
+    /**
+     * Returns string representation of Entry
+     * @return String with ID, title and creator
+     */
     @Override
     public String toString(){
         return id+" "+title+" by "+by;

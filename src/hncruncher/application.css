@@ -28,13 +28,12 @@
 
 
 .button {
-    -fx-background-radius: 4;
-    -fx-background-color: #42a5f5;
-    -fx-text-fill: #ecf0ff;
-    -fx-font-weight: bold;
-    -fx-font-size: 1em;
+    -fx-background-radius: 2;
+    -fx-background-color: #fafafa;
+    -fx-text-fill: #383838;
     -fx-font-family: Ubuntu;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.5) , 5, 0.0 , 0 , 1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 110%;
 }
 .button:hover {
     -fx-background-color: #1e88e5;
@@ -42,19 +41,32 @@
 
 .my-toggle-button {
     -fx-padding: 6, 15, 6, 15;
-    -fx-background-color: #42a5f5;
-    -fx-background-radius: 0;
-    -fx-text-fill: #ecf0ff;
-    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.5), 5, 0.0, 0, 1 );
+    -fx-background-color: #fafafa;
+
+    -fx-text-fill: #383838;
     -fx-font-family: Ubuntu;
     -fx-font-weight: bold;
-    -fx-focus-color: #1e88e5;
+    -fx-font-size: 110%;
 
 }
 
 .my-toggle-button:hover{
-    -fx-background-color: #2196f3;
+    -fx-background-color: #eeeeee;
+
 }
 .my-toggle-button:selected{
-    -fx-background-color: #1e88e5;
+    -fx-background-color: #e0e0e0;
+}
+.right{
+    -fx-background-radius: 0 5px 5px 0;
+}
+.left{
+    -fx-background-radius: 5px 0 0 5px;
+}
+.top-bar{
+    -fx-background-color: #757575;
+}
+
+.progress-indicator{
+    -fx-progress-color: #e0e0e0;
 }

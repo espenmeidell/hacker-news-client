@@ -35,6 +35,7 @@ public class Main extends Application {
         main = this;
         topBar = new TopBar();
         root.getStyleClass().add("baseBG");
+        
 
         hostServicesDelegate = HostServicesDelegate.getInstance(this);
 
@@ -46,7 +47,7 @@ public class Main extends Application {
         root.setCenter(listView);
 
 
-        primaryStage.setScene(new Scene(root, Color.valueOf("#eceff1")));
+        primaryStage.setScene(new Scene(root));
         primaryStage.getScene().getStylesheets().add(getClass().getResource("application.css").toExternalForm());
         primaryStage.show();
         loadData(null);

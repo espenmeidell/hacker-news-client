@@ -35,22 +35,23 @@ public class TopBar extends HBox {
     public TopBar() {
         setSpacing(0);
         setPadding(new Insets(5, 30, 5, 30));
+        getStyleClass().setAll("top-bar");
         newButton.setToggleGroup(sourceGroup);
-        newButton.getStyleClass().setAll("my-toggle-button");
+        newButton.getStyleClass().setAll("my-toggle-button", "left");
         newButton.setOnMouseClicked(Main.main::loadData);
         topButton.setToggleGroup(sourceGroup);
         topButton.getStyleClass().setAll("my-toggle-button");
         topButton.setOnMouseClicked(Main.main::loadData);
         favButton.setToggleGroup(sourceGroup);
-        favButton.getStyleClass().setAll("my-toggle-button");
+        favButton.getStyleClass().setAll("my-toggle-button", "right");
         favButton.setOnMouseClicked(Main.main::loadData);
         topButton.setSelected(true);
 
         normalButton.setToggleGroup(sortGroup);
-        normalButton.getStyleClass().setAll("my-toggle-button");
+        normalButton.getStyleClass().setAll("my-toggle-button", "left");
         normalButton.setOnMouseClicked(this::changeSorting);
         pointsButton.setToggleGroup(sortGroup);
-        pointsButton.getStyleClass().setAll("my-toggle-button");
+        pointsButton.getStyleClass().setAll("my-toggle-button", "right");
         pointsButton.setOnMouseClicked(this::changeSorting);
         normalButton.setSelected(true);
 
